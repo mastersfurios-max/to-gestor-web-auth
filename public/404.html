@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TO Gestor</title>
+  <script>
+    // Redireciona rotas do React Router para o index.html no GitHub Pages
+    var l = window.location;
+    var base = '/to-gestor-web';
+    var path = l.pathname.replace(base, '');
+    var search = l.search.slice(1);
+    var hash = l.hash.slice(1);
+    var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      base + '/?p=' + encodeURIComponent(path) +
+      (search ? '&q=' + encodeURIComponent(search) : '') +
+      (hash ? '&h=' + encodeURIComponent(hash) : '');
+    l.replace(redirect);
+  </script>
+</head>
+<body></body>
+</html>

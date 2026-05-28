@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO Gestor — Terapia Ocupacional</title>
+    <meta name="description" content="Sistema de gestão para clínicas de Terapia Ocupacional" />
+    <!-- Redirect handler for GitHub Pages SPA routing -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          var p = new URLSearchParams(redirect.split('?')[1] || '');
+          var path = p.get('p') || '/';
+          history.replaceState(null, null, path + (p.get('q') ? '?' + p.get('q') : '') + (p.get('h') ? '#' + p.get('h') : ''));
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
