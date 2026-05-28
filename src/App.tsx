@@ -23,7 +23,7 @@ export default function App() {
   return (
     <AuthProvider>
       <AppProvider>
-        <BrowserRouter>
+       <BrowserRouter basename="/to-gestor-web-auth">
           <Routes>
             {/* Rota pública */}
             <Route path="/login" element={<Login />} />
