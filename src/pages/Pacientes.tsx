@@ -1,3 +1,4 @@
+import { useAuth } from '../lib/auth-context';
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Search, User, ChevronRight, Phone, Mail } from 'lucide-react';
@@ -6,6 +7,7 @@ import { Card, PageHeader, Button, Badge, EmptyState } from '../components/ui';
 import { calcularIdade, CATEGORIA_DIAG_COLORS, CATEGORIA_DIAG_LABELS } from '../utils';
 
 export default function Pacientes() {
+  const { perfil } = useAuth();
   const { state } = useApp();
   const navigate = useNavigate();
   const [busca, setBusca] = useState('');
@@ -28,9 +30,12 @@ export default function Pacientes() {
         title="Pacientes"
         subtitle={`${state.pacientes.filter(p => p.ativo).length} pacientes ativos`}
         actions={
-          <Button onClick={() => navigate('/pacientes/novo')}>
-            <Plus size={16} /> Novo Paciente
-          </Button>
+  (perfil === 'admin' || perfil === 'secretaria') ? (
+    <Button onClick={() => navigate('/pacientes/novo')}>
+      <Plus size={16} /> Novo Paciente
+    </Button>
+  ) : null
+}
         }
       />
 
