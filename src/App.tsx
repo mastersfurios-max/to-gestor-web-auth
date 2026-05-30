@@ -53,8 +53,10 @@ export default function App() {
                 </Route>
 
                 {/* Financeiro — todos os perfis */}
-                <Route path="financeiro" element={<Financeiro />} />
-                <Route path="financeiro/relatorio" element={<RelatorioFinanceiro />} />
+                <Route element={<ProtectedRoute perfisPermitidos={['admin', 'secretaria']} />}>
+  <Route path="financeiro" element={<Financeiro />} />
+  <Route path="financeiro/relatorio" element={<RelatorioFinanceiro />} />
+</Route>
 
                 {/* Sugestões — admin e terapeuta */}
                 <Route element={<ProtectedRoute perfisPermitidos={['admin', 'terapeuta']} />}>
