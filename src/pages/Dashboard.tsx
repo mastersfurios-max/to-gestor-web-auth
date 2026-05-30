@@ -48,7 +48,7 @@ export default function Dashboard() {
       {/* Saudação */}
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ margin: 0, fontSize: 24, fontWeight: 800, color: 'var(--color-text)' }}>
-          Bom dia, {state.terapeuta.nome.split(' ')[1] || state.terapeuta.nome}! 👋
+          Bom dia, {usuario?.nome || 'Usuário'}!
         </h1>
         <p style={{ margin: '4px 0 0', color: 'var(--color-text-muted)', fontSize: 14, textTransform: 'capitalize' }}>
           {diaSemana}, {dataFormatada}
