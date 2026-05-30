@@ -1,3 +1,4 @@
+import { useAuth } from '../lib/auth-context';
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
@@ -19,6 +20,7 @@ function getWeekDays(baseDate: Date) {
 }
 
 export default function Agenda() {
+  const { perfil } = useAuth();
   const { state } = useApp();
   const navigate = useNavigate();
   const [baseDate, setBaseDate] = useState(new Date());
@@ -58,7 +60,15 @@ export default function Agenda() {
           <button onClick={nextWeek} style={{ background: 'none', border: '1px solid var(--color-border)', borderRadius: 8, cursor: 'pointer', padding: '6px 8px', color: 'var(--color-text)', display: 'flex' }}>
             <ChevronRight size={16} />
           </button>
-          <Button onClick={() => navigate('/agenda/novo')}><Plus size={14} /> Novo Agendamento</Button>
+          {(perfil === 'admin' || perfil === 'secretaria') && (
+  action={
+  (perfil === 'admin' || perfil === 'secretaria') ? (
+    <Button onClick={() => navigate('/agenda/novo')}>
+      <Plus size={14} /> Novo Agendamento
+    </Button>
+  ) : undefined
+}
+)}
         </div>
       </div>
 
