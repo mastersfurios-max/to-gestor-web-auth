@@ -34,16 +34,23 @@ export default function App() {
                 <Route index element={<Dashboard />} />
 
                 {/* Pacientes — todos os perfis */}
-                <Route path="pacientes" element={<Pacientes />} />
-                <Route path="pacientes/novo" element={<PacienteForm />} />
-                <Route path="pacientes/:id" element={<PacienteDetalhe />} />
-                <Route path="pacientes/:id/editar" element={<PacienteForm />} />
-                <Route path="pacientes/:id/relatorio" element={<RelatorioPaciente />} />
+<Route path="pacientes" element={<Pacientes />} />
+<Route path="pacientes/:id" element={<PacienteDetalhe />} />
+<Route path="pacientes/:id/relatorio" element={<RelatorioPaciente />} />
+
+{/* Apenas Admin e Secretária */}
+<Route element={<ProtectedRoute perfisPermitidos={['admin', 'secretaria']} />}>
+  <Route path="pacientes/novo" element={<PacienteForm />} />
+  <Route path="pacientes/:id/editar" element={<PacienteForm />} />
+</Route>
 
                 {/* Agenda — todos os perfis */}
-                <Route path="agenda" element={<Agenda />} />
-                <Route path="agenda/novo" element={<AgendaForm />} />
-                <Route path="agenda/:id" element={<AtendimentoDetalhe />} />
+               <Route path="agenda" element={<Agenda />} />
+<Route path="agenda/:id" element={<AtendimentoDetalhe />} />
+
+<Route element={<ProtectedRoute perfisPermitidos={['admin', 'secretaria']} />}>
+  <Route path="agenda/novo" element={<AgendaForm />} />
+</Route>
 
                 {/* Clínico — admin e terapeuta */}
                 <Route element={<ProtectedRoute perfisPermitidos={['admin', 'terapeuta']} />}>
