@@ -1,3 +1,4 @@
+import { useAuth } from '../lib/auth-context';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Users, DollarSign, AlertTriangle, Plus, Lightbulb, Clock } from 'lucide-react';
@@ -7,6 +8,7 @@ import { formatCurrency, formatDateBR, STATUS_AT_COLORS, STATUS_AT_LABELS, TIPO_
 
 export default function Dashboard() {
   const { state } = useApp();
+  const { usuario } = useAuth();
   const navigate = useNavigate();
 
   const hoje = new Date().toISOString().split('T')[0];
