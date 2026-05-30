@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { to: '/pacientes', icon: Users, label: 'Pacientes', perfis: ['admin', 'terapeuta', 'secretaria'] },
   { to: '/agenda', icon: Calendar, label: 'Agenda', perfis: ['admin', 'terapeuta', 'secretaria'] },
   { to: '/clinico', icon: FileText, label: 'Clínico', perfis: ['admin', 'terapeuta'] },
-  { to: '/financeiro', icon: DollarSign, label: 'Financeiro', perfis: ['admin', 'secretaria', 'terapeuta'] },
+ { to: '/financeiro', icon: DollarSign, label: 'Financeiro', perfis: ['admin', 'secretaria'] },,
   { to: '/sugestoes', icon: Lightbulb, label: 'Sugestões', perfis: ['admin', 'terapeuta'] },
   { to: '/admin', icon: ShieldCheck, label: 'Administração', perfis: ['admin'] },
   { to: '/configuracoes', icon: Settings, label: 'Configurações', perfis: ['admin', 'terapeuta', 'secretaria'] },
